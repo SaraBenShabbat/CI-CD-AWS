@@ -21,8 +21,3 @@ t2mLPrMNiwWGRfjI56hHj1XIqs8RrdPAdSB6sei6dneEYQKBgQDjnQmE4JzooVtB1godIbe2eymy
 obJHigm/h/K9h1EtopkR6QAuQrjr65iTgWwTKWXMylmLkutq2SF/VQV7LGf0oz+H4My8kI1axfYC
 Vs7IIzpgLNeYx+5sdPfj6KzxuV82amOss8lDSLKlUnhWjTc9+kWX0V1nGtBdpg+K3lWKNg==
 -----END RSA PRIVATE KEY-----
-stage('Building Docker Image'){
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GitHub', url: 'https://github.com/SaraBenShabbat/CI-CD-AWS-Docker.git']]])    
-        sh label: '', script: '''cp ${WORKSPACE}/target/hello-world-war-1.0.${BUILD_ID}.war ${WORKSPACE}
-                                 docker build -t java-app-${BUILD_ID} .'''
-    }
